@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team Méw ✿ Polymnia's Berry Garden</title>
-<meta name="description" content="Polymnia's PokeMMO berry farm — schedule, services & shop. Team Méw.">
+<meta name="description" content="Polymnia's PokeMMO berry farm | almanac, guide, calendar, shop & orders. Team Méw.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,24 +14,24 @@
 <body>
 
 <nav class="nav">
-  <a class="nav-logo" href="#top">
-    <img src="assets/banner.png" alt="Team Méw">
-  </a>
+  <a class="nav-logo" href="#top"><img src="assets/banner.png" alt="Team Méw"></a>
   <div class="nav-links">
     <a href="#calendar">Calendar</a>
-    <a href="#stats">Farm Stats</a>
+    <a href="#almanac">Almanac</a>
+    <a href="#guide">Guide</a>
     <a href="#shop">Shop</a>
+    <a href="#order" class="nav-order">Order ✿</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="hero-text">
-    <p class="eyebrow">Team Méw ミュウ · PokeMMO</p>
-    <h1>Polymnia's<br><span class="hl">Berry Garden</span></h1>
-    <p class="hero-sub">Berries, seeds, EV &amp; EXP training — grown with love across the Poly farm alts. Check the calendar for harvest &amp; restock days, then come shop. ✿</p>
+    <p class="eyebrow" data-txt="hero_eyebrow">Team Méw ミュウ · PokeMMO</p>
+    <h1><span data-txt="hero_title_1">Polymnia's</span><br><span class="hl" data-txt="hero_title_2">Berry Garden</span></h1>
+    <p class="hero-sub" data-txt="hero_sub">Berries, seeds, EV &amp; EXP training | grown with love across the Poly farm alts. Browse the almanac, learn the craft, and place an order. ✿</p>
     <div class="hero-cta">
-      <a class="btn btn-pink" href="#calendar">🗓 See the calendar</a>
-      <a class="btn btn-ghost" href="#shop">🛍 Shop services</a>
+      <a class="btn btn-pink" href="#order" data-txt="hero_cta_1">🧺 Place an order</a>
+      <a class="btn btn-ghost" href="#almanac" data-txt="hero_cta_2">📖 Open the almanac</a>
     </div>
   </div>
   <div class="hero-art">
@@ -43,10 +43,9 @@
   <!-- ============ CALENDAR ============ -->
   <section class="section" id="calendar">
     <div class="section-head">
-      <h2>🌸 Garden Calendar</h2>
-      <p>Hover a day to peek at what's happening — harvests, restocks, shop hours. Scroll or use the arrows to wander between months.</p>
+      <h2 data-txt="cal_title">🌸 Garden Calendar</h2>
+      <p data-txt="cal_sub">Hover or tap a day to peek at what's happening | harvests, restocks, shop hours. Scroll or use the arrows to wander between months.</p>
     </div>
-
     <div class="cal-frame" aria-label="Monthly calendar">
       <div class="cal-toolbar">
         <button class="cal-btn" id="calPrev" aria-label="Previous month">‹</button>
@@ -59,14 +58,53 @@
       <div class="cal-grid" id="calGrid"></div>
       <div class="cal-tip" id="calTip" role="tooltip" hidden></div>
     </div>
-    <p class="cal-hint" id="calHint">🍒 = something's planned that day</p>
+    <p class="cal-hint" data-txt="cal_hint">🍒 = something's planned that day</p>
+  </section>
+
+  <!-- ============ ALMANAC ============ -->
+  <section class="section" id="almanac">
+    <div class="section-head">
+      <h2 data-txt="almanac_title">📖 The Berry Almanac</h2>
+      <p data-txt="almanac_sub">All 64 berries | what they do, what to plant, and how long they take. Straight from Poly's Berries.</p>
+    </div>
+    <div class="alm-controls">
+      <input type="search" id="almSearch" placeholder="Search a berry, effect, or seed… 🍓" aria-label="Search berries">
+      <div class="alm-chips" id="almChips" role="group" aria-label="Filter by grow time">
+        <button class="chip active" data-time="">All</button>
+        <button class="chip" data-time="16h">16h</button>
+        <button class="chip" data-time="20h">20h</button>
+        <button class="chip" data-time="42h,44h">42–44h</button>
+        <button class="chip" data-time="67h">67h</button>
+      </div>
+    </div>
+    <div class="alm-grid" id="almGrid"></div>
+    <p class="alm-count" id="almCount"></p>
+  </section>
+
+  <!-- ============ GUIDE ============ -->
+  <section class="section" id="guide">
+    <div class="section-head">
+      <h2 data-txt="guide_title">🌾 Poly's Farming Guide</h2>
+      <p data-txt="guide_sub">From your first plot to daily Leppa stacks | the almanac's field notes, one lesson at a time.</p>
+    </div>
+    <div class="guide-list" id="guideList"></div>
+    <p class="guide-tbc" data-txt="guide_tbc">…to be continued! Farmhand &amp; Cropmaster chapters are growing. 🌱</p>
+  </section>
+
+  <!-- ============ TOOLS & LINKS ============ -->
+  <section class="section" id="tools">
+    <div class="section-head">
+      <h2 data-txt="links_title">🧰 Tools &amp; Resources</h2>
+      <p data-txt="links_sub">The farmer's toolbelt | trackers, calculators &amp; charts Poly actually uses.</p>
+    </div>
+    <div class="links-grid" id="linksGrid"></div>
   </section>
 
   <!-- ============ STATS ============ -->
   <section class="section" id="stats">
     <div class="section-head">
-      <h2>🧺 Farm Stats</h2>
-      <p>The running harvest &amp; sales tally — updated straight from the garden ledger.</p>
+      <h2 data-txt="stats_title">🧺 Farm Stats</h2>
+      <p data-txt="stats_sub">The running harvest &amp; sales tally | updated straight from the garden ledger.</p>
     </div>
     <div class="stats-grid" id="statsGrid"></div>
   </section>
@@ -74,21 +112,60 @@
   <!-- ============ SHOP ============ -->
   <section class="section" id="shop">
     <div class="section-head">
-      <h2>🛍 Shop &amp; Services</h2>
-      <p>Whisper <span class="ign">Polymnia</span> in game or mail the shop. Prices in P¥.</p>
+      <h2 data-txt="shop_title">🛍 Shop &amp; Services</h2>
+      <p data-txt="shop_sub">Whisper <span class="ign" data-txt="ign">Polymnia</span> in game or place an order below. Prices in P¥.</p>
     </div>
     <div class="shop-grid" id="shopGrid"></div>
     <figure class="menu-art">
       <img src="assets/menu.jpg" alt="Polymnia Trade & Services menu card">
-      <figcaption>The official menu card ♡</figcaption>
+      <figcaption data-txt="menu_caption">The official menu card ♡</figcaption>
     </figure>
+  </section>
+
+  <!-- ============ ORDER ============ -->
+  <section class="section" id="order">
+    <div class="section-head">
+      <h2 data-txt="order_title">🧺 Place an Order</h2>
+      <p data-txt="order_sub">Pick what you need and it totals itself. Your order flies straight to Poly's ledger. ✉️</p>
+    </div>
+    <div class="order-card">
+      <div class="order-row">
+        <label for="ordIGN">Your in-game name <span class="req">*</span></label>
+        <input type="text" id="ordIGN" placeholder="e.g. BerryFan99" maxlength="40" required>
+      </div>
+      <div class="order-row order-two">
+        <div>
+          <label for="ordItem">Berry / service</label>
+          <select id="ordItem"></select>
+        </div>
+        <div>
+          <label for="ordQty">Amount</label>
+          <input type="number" id="ordQty" min="1" step="1" value="1">
+        </div>
+      </div>
+      <div class="order-row">
+        <label for="ordNotes">Notes (optional)</label>
+        <textarea id="ordNotes" rows="2" placeholder="timing, natures, anything else…"></textarea>
+      </div>
+      <div class="order-total">
+        <span data-txt="order_total_label">Estimated total</span>
+        <strong id="ordTotal"> | </strong>
+      </div>
+      <button class="btn btn-pink order-btn" id="ordSubmit">Send order ✿</button>
+      <p class="order-status" id="ordStatus" aria-live="polite"></p>
+      <div class="order-fallback" id="ordFallback" hidden>
+        <p>Copy this and mail it to <span class="ign" data-txt="ign2">Polymnia</span> in game:</p>
+        <pre id="ordText"></pre>
+        <button class="btn btn-ghost" id="ordCopy">Copy order</button>
+      </div>
+    </div>
   </section>
 
   <!-- ============ GALLERY ============ -->
   <section class="section" id="gallery">
     <div class="section-head">
-      <h2>🎨 The Gallery</h2>
-      <p>Art from around the garden.</p>
+      <h2 data-txt="gallery_title">🎨 The Gallery</h2>
+      <p data-txt="gallery_sub">Art from around the garden.</p>
     </div>
     <div class="gallery">
       <img src="assets/chibi_music.png" alt="Polymnia chibi humming">
@@ -100,11 +177,12 @@
 </main>
 
 <footer class="footer">
-  <p>✿ Team Méw · Polymnia's Berry Garden · PokeMMO ✿</p>
-  <p class="footer-small">Not affiliated with PokeMMO. Art © Polymnia &amp; commissioned artists.</p>
+  <p data-txt="footer_line">✿ Team Méw · Polymnia's Berry Garden · PokeMMO ✿</p>
+  <p class="footer-small" data-txt="footer_small">Not affiliated with PokeMMO. Art © Polymnia &amp; commissioned artists.</p>
   <a class="staff-key" id="staffKey" href="#" title="staff" aria-label="Staff sign-in">🔑</a>
 </footer>
 
+<script src="js/almanac-data.js"></script>
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
 </body>
