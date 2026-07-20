@@ -1,0 +1,315 @@
+/* ==========================================================
+   Polymnia's Berry Garden — soft Catppuccin Mocha
+   base lifted for a cozy (not-so-dark) dark mode
+   ========================================================== */
+:root{
+  --base:      #2a2a40;   /* lifted mocha base */
+  --base-2:    #24243a;
+  --mantle:    #1e1e2e;
+  --surface:   #363650;
+  --surface-2: #45475a;
+  --line:      #4f5170;
+  --text:      #cdd6f4;
+  --subtext:   #b3bade;
+  --crust:     #11111b;
+
+  --pink:      #f5c2e7;
+  --pink-soft: #f7d3ec;
+  --mauve:     #cba6f7;
+  --lavender:  #b4befe;
+  --peach:     #fab387;
+  --green:     #a6e3a1;
+  --teal:      #94e2d5;
+  --red:       #f38ba8;
+  --yellow:    #f9e2af;
+
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(17,17,27,.35);
+  --font-display: "Baloo 2", system-ui, sans-serif;
+  --font-body: "Quicksand", system-ui, sans-serif;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+}
+
+body{
+  font-family:var(--font-body);
+  color:var(--text);
+  background:
+    radial-gradient(1100px 500px at 85% -5%, rgba(245,194,231,.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(203,166,247,.10), transparent 55%),
+    linear-gradient(180deg, var(--base) 0%, var(--base-2) 100%);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:var(--pink); }
+
+/* ---------------- nav ---------------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.5rem 1.4rem;
+  background:rgba(30,30,46,.82);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo img{ height:52px; width:auto; }
+.nav-links{ display:flex; gap:1.4rem; }
+.nav-links a{
+  font-family:var(--font-display);
+  font-weight:600; font-size:1rem;
+  color:var(--text); text-decoration:none;
+  padding:.35rem .8rem; border-radius:999px;
+  transition:background .2s, color .2s;
+}
+.nav-links a:hover, .nav-links a:focus-visible{ background:var(--pink); color:var(--crust); }
+
+/* ---------------- hero ---------------- */
+.hero{
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns: 1.05fr .95fr;
+  gap:2.5rem; align-items:center;
+  padding:4rem 1.4rem 3rem;
+}
+.eyebrow{
+  font-family:var(--font-display); font-weight:600;
+  color:var(--mauve); letter-spacing:.14em; text-transform:uppercase; font-size:.85rem;
+}
+.hero h1{
+  font-family:var(--font-display); font-weight:800;
+  font-size:clamp(2.6rem, 6vw, 4.2rem); line-height:1.05;
+  margin:.4rem 0 1rem;
+}
+.hero .hl{
+  color:var(--pink);
+  text-shadow:0 0 28px rgba(245,194,231,.35);
+}
+.hero-sub{ color:var(--subtext); max-width:44ch; margin-bottom:1.6rem; }
+.hero-cta{ display:flex; gap:.8rem; flex-wrap:wrap; }
+.btn{
+  font-family:var(--font-display); font-weight:700;
+  text-decoration:none; padding:.7rem 1.3rem; border-radius:999px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn-pink{ background:var(--pink); color:var(--crust); box-shadow:0 6px 18px rgba(245,194,231,.28); }
+.btn-ghost{ border:2px solid var(--mauve); color:var(--mauve); }
+.hero-art img{
+  border-radius:28px;
+  border:3px solid var(--pink);
+  box-shadow:0 0 0 8px rgba(245,194,231,.10), var(--shadow);
+}
+
+/* ---------------- sections ---------------- */
+.section{ max-width:1100px; margin:0 auto; padding:3.2rem 1.4rem; }
+.section-head{ text-align:center; margin-bottom:2rem; }
+.section-head h2{
+  font-family:var(--font-display); font-weight:800; font-size:2rem; color:var(--pink-soft);
+}
+.section-head p{ color:var(--subtext); max-width:56ch; margin:.4rem auto 0; }
+.ign{ color:var(--peach); font-weight:700; }
+
+/* ---------------- calendar (the garden bed) ---------------- */
+.cal-frame{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.2rem 1.2rem 1.4rem;
+  box-shadow:var(--shadow);
+}
+.cal-toolbar{
+  display:flex; align-items:center; justify-content:center; gap:1rem;
+  margin-bottom:.9rem;
+}
+.cal-title{
+  font-family:var(--font-display); font-weight:800; font-size:1.5rem;
+  color:var(--pink); min-width:14ch; text-align:center;
+}
+.cal-btn{
+  font-size:1.4rem; line-height:1;
+  width:2.4rem; height:2.4rem; border-radius:50%;
+  border:none; cursor:pointer;
+  background:var(--surface-2); color:var(--pink);
+  transition:background .2s, transform .1s;
+}
+.cal-btn:hover{ background:var(--pink); color:var(--crust); transform:scale(1.08); }
+.cal-weekdays{
+  display:grid; grid-template-columns:repeat(7,1fr);
+  text-align:center; font-family:var(--font-display); font-weight:700;
+  color:var(--lavender); font-size:.9rem; margin-bottom:.4rem;
+}
+.cal-grid{
+  display:grid; grid-template-columns:repeat(7,1fr);
+  gap:.45rem;
+}
+.cal-day{
+  position:relative;
+  min-height:86px;
+  border-radius:14px;
+  background:var(--base-2);
+  border:1px solid transparent;
+  padding:.4rem .5rem;
+  font-weight:600; font-size:.95rem; color:var(--subtext);
+  cursor:default;
+  transition:border-color .15s, background .15s, transform .12s;
+}
+.cal-day.out{ opacity:.32; }
+.cal-day.today{
+  border-color:var(--peach);
+  box-shadow:0 0 0 2px rgba(250,179,135,.25) inset;
+}
+.cal-day.has-event{ cursor:pointer; background:#33314e; }
+.cal-day.has-event:hover, .cal-day.has-event:focus-visible{
+  border-color:var(--pink);
+  transform:translateY(-2px);
+  background:#3a3457;
+}
+.cal-day .dnum{ position:absolute; top:.35rem; right:.55rem; }
+.cal-day .berries{
+  position:absolute; left:.5rem; bottom:.4rem;
+  display:flex; gap:.2rem; flex-wrap:wrap; max-width:85%;
+}
+.cal-day .berry{
+  width:12px; height:12px; border-radius:50%;
+  background:var(--pink);
+  box-shadow:0 0 6px rgba(245,194,231,.6);
+}
+.cal-day .berry.b2{ background:var(--mauve); box-shadow:0 0 6px rgba(203,166,247,.6); }
+.cal-day .berry.b3{ background:var(--teal);  box-shadow:0 0 6px rgba(148,226,213,.6); }
+.cal-day .ev-peek{
+  display:block; margin-top:1.2rem;
+  font-size:.72rem; font-weight:700; color:var(--pink-soft);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.cal-hint{ text-align:center; color:var(--subtext); font-size:.85rem; margin-top:.8rem; }
+
+.cal-tip{
+  position:absolute; z-index:20;
+  max-width:280px;
+  background:var(--mantle);
+  border:1.5px solid var(--pink);
+  border-radius:14px;
+  padding:.7rem .9rem;
+  box-shadow:var(--shadow);
+  pointer-events:none;
+  font-size:.88rem;
+}
+.cal-tip h4{
+  font-family:var(--font-display); color:var(--pink); font-size:.95rem; margin-bottom:.15rem;
+}
+.cal-tip .tip-item + .tip-item{ margin-top:.5rem; border-top:1px dashed var(--line); padding-top:.5rem; }
+.cal-tip p{ color:var(--subtext); font-size:.82rem; }
+
+/* ---------------- stats ---------------- */
+.stats-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr));
+  gap:1rem;
+}
+.stat-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1.3rem 1rem 1.1rem;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .15s;
+}
+.stat-card:hover{ transform:translateY(-3px); }
+.stat-emoji{ font-size:1.6rem; }
+.stat-value{
+  font-family:var(--font-display); font-weight:800;
+  font-size:2rem; color:var(--pink);
+  margin:.15rem 0 .1rem;
+}
+.stat-label{ color:var(--subtext); font-weight:600; font-size:.88rem; }
+
+/* ---------------- shop ---------------- */
+.shop-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:1.2rem;
+}
+.shop-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex; flex-direction:column;
+}
+.shop-card h3{
+  font-family:var(--font-display); font-weight:800; font-size:1.2rem;
+  padding:.8rem 1.1rem; color:var(--crust);
+}
+.shop-card.c-pink  h3{ background:var(--pink); }
+.shop-card.c-mauve h3{ background:var(--mauve); }
+.shop-card.c-peach h3{ background:var(--peach); }
+.shop-card.c-teal  h3{ background:var(--teal); }
+.shop-list{ list-style:none; padding:.6rem 1.1rem 1rem; flex:1; }
+.shop-list li{
+  display:flex; justify-content:space-between; align-items:baseline; gap:.8rem;
+  padding:.55rem 0;
+  border-bottom:1px dashed var(--line);
+}
+.shop-list li:last-child{ border-bottom:none; }
+.shop-item b{ font-weight:700; }
+.shop-item small{ display:block; color:var(--subtext); font-size:.78rem; }
+.shop-price{
+  font-family:var(--font-display); font-weight:700;
+  color:var(--yellow); white-space:nowrap;
+}
+.menu-art{ margin-top:2rem; text-align:center; }
+.menu-art img{
+  margin:0 auto; border-radius:var(--radius);
+  border:2px solid var(--line); box-shadow:var(--shadow);
+  max-width:760px; width:100%;
+}
+.menu-art figcaption{ color:var(--subtext); font-size:.85rem; margin-top:.5rem; }
+
+/* ---------------- gallery ---------------- */
+.gallery{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1rem; align-items:center;
+}
+.gallery img{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:1rem;
+  transition:transform .15s;
+}
+.gallery img:hover{ transform:scale(1.04) rotate(-1.2deg); }
+
+/* ---------------- footer ---------------- */
+.footer{
+  position:relative;
+  text-align:center;
+  padding:2.4rem 1.4rem 2.8rem;
+  border-top:1px solid var(--line);
+  background:var(--mantle);
+  font-family:var(--font-display);
+}
+.footer-small{ color:var(--subtext); font-size:.78rem; font-family:var(--font-body); margin-top:.3rem; }
+.staff-key{
+  position:absolute; right:1rem; bottom:.8rem;
+  font-size:.85rem; text-decoration:none;
+  opacity:.35; transition:opacity .2s, transform .2s;
+}
+.staff-key:hover, .staff-key:focus-visible{ opacity:1; transform:scale(1.15); }
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 840px){
+  .hero{ grid-template-columns:1fr; padding-top:2.5rem; text-align:center; }
+  .hero-sub{ margin-inline:auto; }
+  .hero-cta{ justify-content:center; }
+  .nav-links{ gap:.5rem; }
+  .nav-links a{ font-size:.85rem; padding:.3rem .6rem; }
+  .cal-day{ min-height:64px; font-size:.8rem; }
+  .cal-day .ev-peek{ display:none; }
+}

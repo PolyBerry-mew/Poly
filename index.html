@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Méw ✿ Polymnia's Berry Garden</title>
+<meta name="description" content="Polymnia's PokeMMO berry farm — schedule, services & shop. Team Méw.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/chibi_music.png" type="image/png">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#top">
+    <img src="assets/banner.png" alt="Team Méw">
+  </a>
+  <div class="nav-links">
+    <a href="#calendar">Calendar</a>
+    <a href="#stats">Farm Stats</a>
+    <a href="#shop">Shop</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-text">
+    <p class="eyebrow">Team Méw ミュウ · PokeMMO</p>
+    <h1>Polymnia's<br><span class="hl">Berry Garden</span></h1>
+    <p class="hero-sub">Berries, seeds, EV &amp; EXP training — grown with love across the Poly farm alts. Check the calendar for harvest &amp; restock days, then come shop. ✿</p>
+    <div class="hero-cta">
+      <a class="btn btn-pink" href="#calendar">🗓 See the calendar</a>
+      <a class="btn btn-ghost" href="#shop">🛍 Shop services</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <img src="assets/garden.jpg" alt="Polymnia tending the berry garden with an Eevee">
+  </div>
+</header>
+
+<main>
+  <!-- ============ CALENDAR ============ -->
+  <section class="section" id="calendar">
+    <div class="section-head">
+      <h2>🌸 Garden Calendar</h2>
+      <p>Hover a day to peek at what's happening — harvests, restocks, shop hours. Scroll or use the arrows to wander between months.</p>
+    </div>
+
+    <div class="cal-frame" aria-label="Monthly calendar">
+      <div class="cal-toolbar">
+        <button class="cal-btn" id="calPrev" aria-label="Previous month">‹</button>
+        <div class="cal-title" id="calTitle" aria-live="polite">Month</div>
+        <button class="cal-btn" id="calNext" aria-label="Next month">›</button>
+      </div>
+      <div class="cal-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-tip" id="calTip" role="tooltip" hidden></div>
+    </div>
+    <p class="cal-hint" id="calHint">🍒 = something's planned that day</p>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="section" id="stats">
+    <div class="section-head">
+      <h2>🧺 Farm Stats</h2>
+      <p>The running harvest &amp; sales tally — updated straight from the garden ledger.</p>
+    </div>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section class="section" id="shop">
+    <div class="section-head">
+      <h2>🛍 Shop &amp; Services</h2>
+      <p>Whisper <span class="ign">Polymnia</span> in game or mail the shop. Prices in P¥.</p>
+    </div>
+    <div class="shop-grid" id="shopGrid"></div>
+    <figure class="menu-art">
+      <img src="assets/menu.jpg" alt="Polymnia Trade & Services menu card">
+      <figcaption>The official menu card ♡</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <h2>🎨 The Gallery</h2>
+      <p>Art from around the garden.</p>
+    </div>
+    <div class="gallery">
+      <img src="assets/chibi_music.png" alt="Polymnia chibi humming">
+      <img src="assets/chibi_yes.png" alt="Chibi holding a YES sign">
+      <img src="assets/chibi_no.png" alt="Chibi holding a NO sign">
+      <img src="assets/banner.png" alt="Team Méw logo">
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>✿ Team Méw · Polymnia's Berry Garden · PokeMMO ✿</p>
+  <p class="footer-small">Not affiliated with PokeMMO. Art © Polymnia &amp; commissioned artists.</p>
+  <a class="staff-key" id="staffKey" href="#" title="staff" aria-label="Staff sign-in">🔑</a>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
